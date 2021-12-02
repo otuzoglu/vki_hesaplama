@@ -83,12 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text("İbrahim Özkaracan!12")
-          ],
-        )  
         ],
       ),
     );
