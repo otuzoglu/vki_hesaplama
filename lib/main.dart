@@ -52,45 +52,76 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 20,
-          ),
           Expanded(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GuzelCard(
-                  fonksiyon: () {
-                    setState(() {
-                      seciliCinsiyet = cinsiyet.male;
-                    });
-                  },
-                  cardColor: seciliCinsiyet == cinsiyet.male
-                      ? rkAktifCardBackColor
-                      : rkPasifCardBackColor,
-                  simge: Icons.male,
-                  metin: "ERKEK",
+                Expanded(
+                  child: OrtakCard(
+                    fonksiyon: () {
+                      setState(() {
+                        seciliCinsiyet = cinsiyet.male;
+                      });
+                    },
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.male,
+                          size: 180,
+                          color: rkCardForeColor,
+                        ),
+                        Text(
+                          "ERKEK",
+                          style: TextStyle(
+                            color: rkCardForeColor,
+                            fontSize: 24,
+                          ),
+                        )
+                      ],
+                    ),
+                    cardColor: seciliCinsiyet == cinsiyet.male
+                        ? rkAktifCardBackColor
+                        : rkPasifCardBackColor,
+                  ),
                 ),
-                GuzelCard(
-                  fonksiyon: () {
-                    setState(() {
-                      seciliCinsiyet = cinsiyet.female;
-                    });
-                  },
-                  cardColor: seciliCinsiyet == cinsiyet.female
-                      ? rkAktifCardBackColor
-                      : rkPasifCardBackColor,
-                  simge: Icons.female,
-                  metin: "KADIN",
+                Expanded(
+                  child: OrtakCard(
+                    fonksiyon: () {
+                      setState(() {
+                        seciliCinsiyet = cinsiyet.female;
+                      });
+                    },
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.female,
+                          size: 180,
+                          color: rkCardForeColor,
+                        ),
+                        Text(
+                          "KADIN",
+                          style: TextStyle(
+                            color: rkCardForeColor,
+                            fontSize: 24,
+                          ),
+                        )
+                      ],
+                    ),
+                    cardColor: seciliCinsiyet == cinsiyet.female
+                        ? rkAktifCardBackColor
+                        : rkPasifCardBackColor,
+                  ),
                 ),
               ],
             ),
           ),
           Expanded(
             child: OrtakCard(
-              () {},
-              Colors.red,
-              Column(
+              fonksiyon: () {
+                print("alper");
+              },
+              cardColor: rkPasifCardBackColor,
+              child: Column(
                 children: [
                   Text(
                     "HEIGHT",

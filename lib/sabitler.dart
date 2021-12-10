@@ -7,6 +7,13 @@ Color rkPasifCardBackColor = Colors.grey.shade900;
 
 Color rkCardForeColor = Colors.white70;
 
+TextStyle stilBoyYaziStyle = TextStyle(color: rkCardForeColor, fontSize: 20);
+TextStyle stilCmYaziStyle = TextStyle(color: rkCardForeColor);
+TextStyle stilRakamYaziStyle = TextStyle(
+  color: rkCardForeColor,
+  fontSize: 50,
+);
+
 TextStyle tsActivCardColor = TextStyle(
   color: rkCardForeColor,
 );

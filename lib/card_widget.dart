@@ -38,24 +38,25 @@ class GuzelCard extends StatelessWidget {
 }
 
 class OrtakCard extends StatelessWidget {
-  OrtakCard(this.fonksiyon, this.cardColor, this.cardChild);
+  OrtakCard({@required this.child, this.fonksiyon, this.cardColor});
 
-  final cardColor;
-  final Widget cardChild;
-  final fonksiyon;
+  final Widget child;
+  final Function fonksiyon;
+  final Color cardColor;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: fonksiyon,
       child: Container(
-        margin: EdgeInsets.all(15),
+        margin: EdgeInsets.all(5),
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: rkPasifCardBackColor,
+          color: cardColor,
         ),
-        child: cardChild,
+        child: child,
       ),
+      onTap: fonksiyon,
     );
   }
 }
