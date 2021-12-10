@@ -1,4 +1,4 @@
-import 'dart:core';
+//import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:vki_hesaplama/card_widget.dart';
@@ -157,123 +157,120 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          Row(
-            children: [
-              OrtakCard(
-                  cardColor: rkPasifCardBackColor,
-                  cardChild: Column(
-                    children: [
-                      Text(
-                        "WEIGHT",
-                        style: tsActivCardColor,
-                      ),
-                      Text(
-                        weight.toString(),
-                        style: tsHeightStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: OrtakCard(
+                      cardColor: rkPasifCardBackColor,
+                      cardChild: Column(
                         children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                weight++;
-                              });
-                            },
-                            child: Text(
-                              '+',
-                              style: tsElevatedButton,
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.yellow,
-                              shape: CircleBorder(),
-                              padding: EdgeInsets.all(24),
-                            ),
+                          Text(
+                            "WEIGHT",
+                            style: tsActivCardColor,
                           ),
-                          SizedBox(width: 10),
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                weight--;
-                              });
-                            },
-                            child: Text(
-                              '-',
-                              style: tsElevatedButton,
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shape: CircleBorder(),
-                              padding: EdgeInsets.all(24),
-                            ),
+                          Text(
+                            weight.toString(),
+                            style: tsHeightStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                child: Text(
+                                  '+',
+                                  style: tsElevatedButton,
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  shadowColor: Colors.yellow,
+                                  shape: CircleBorder(),
+                                  padding: EdgeInsets.all(24),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                                child: Text(
+                                  '-',
+                                  style: tsElevatedButton,
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  shape: CircleBorder(),
+                                  padding: EdgeInsets.all(24),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                    ],
-                  )),
-              OrtakCard(
-                  cardColor: rkPasifCardBackColor,
-                  cardChild: Column(
-                    children: [
-                      Text(
-                        "AGE",
-                        style: tsActivCardColor,
-                      ),
-                      Text(
-                        age.toString(),
-                        style: tsHeightStyle,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      )),
+                ),
+                Expanded(
+                  child: OrtakCard(
+                      cardColor: rkPasifCardBackColor,
+                      cardChild: Column(
                         children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                setState(() {
-                                  age++;
-                                });
-                              });
-                            },
-                            child: Text(
-                              '+',
-                              style: tsElevatedButton,
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shadowColor: Colors.yellow,
-                              shape: CircleBorder(),
-                              padding: EdgeInsets.all(24),
-                            ),
+                          Text(
+                            "AGE",
+                            style: tsActivCardColor,
                           ),
-                          SizedBox(width: 10),
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                age--;
-                              });
-                            },
-                            child: Text(
-                              '-',
-                              style: tsElevatedButton,
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              shape: CircleBorder(),
-                              padding: EdgeInsets.all(24),
-                            ),
+                          Text(
+                            age.toString(),
+                            style: tsHeightStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  });
+                                },
+                                child: Text(
+                                  '+',
+                                  style: tsElevatedButton,
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  shadowColor: Colors.yellow,
+                                  shape: CircleBorder(),
+                                  padding: EdgeInsets.all(24),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                                child: Text(
+                                  '-',
+                                  style: tsElevatedButton,
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  shape: CircleBorder(),
+                                  padding: EdgeInsets.all(24),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
-                      ),
-                    ],
-                  )),
-            ],
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            child: ElevatedButton(
-              style: ButtonStyle(),
-              onPressed: () {},
-              child: Text("Hesapla"),
+                      )),
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
