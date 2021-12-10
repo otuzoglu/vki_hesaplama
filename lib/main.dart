@@ -1,8 +1,7 @@
-//import 'dart:core';
-
 import 'package:flutter/material.dart';
 import 'package:vki_hesaplama/card_widget.dart';
 import 'package:vki_hesaplama/sabitler.dart';
+import 'package:vki_hesaplama/sonuc_sayfasi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -269,6 +268,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                 ),
               ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 50,
+            child: ElevatedButton(
+              onPressed: () {
+                double boy = height / 100;
+                double vki = weight / (boy * boy);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SonucEkrani(
+                              height: height,
+                              weight: weight,
+                              vki: vki,
+                            )));
+              },
+              child: Text("Hesapla"),
             ),
           ),
         ],
