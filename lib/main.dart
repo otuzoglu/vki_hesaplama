@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:vki_hesaplama/card_widget.dart';
 import 'package:vki_hesaplama/sabitler.dart';
@@ -34,6 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Color cardColor = rkPasifCardBackColor;
   cinsiyet seciliCinsiyet;
   int height = 180;
+  int weight = 60;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -52,82 +56,224 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 20,
-          ),
           Expanded(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GuzelCard(
+                OrtakCard(
                   fonksiyon: () {
                     setState(() {
                       seciliCinsiyet = cinsiyet.male;
                     });
                   },
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.male,
+                        size: 180,
+                        color: rkCardForeColor,
+                      ),
+                      Text(
+                        "ERKEK",
+                        style: TextStyle(
+                          color: rkCardForeColor,
+                          fontSize: 24,
+                        ),
+                      )
+                    ],
+                  ),
                   cardColor: seciliCinsiyet == cinsiyet.male
                       ? rkAktifCardBackColor
                       : rkPasifCardBackColor,
-                  simge: Icons.male,
-                  metin: "ERKEK",
                 ),
-                GuzelCard(
+                OrtakCard(
                   fonksiyon: () {
                     setState(() {
                       seciliCinsiyet = cinsiyet.female;
                     });
                   },
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.female,
+                        size: 180,
+                        color: rkCardForeColor,
+                      ),
+                      Text(
+                        "KADIN",
+                        style: TextStyle(
+                          color: rkCardForeColor,
+                          fontSize: 24,
+                        ),
+                      )
+                    ],
+                  ),
                   cardColor: seciliCinsiyet == cinsiyet.female
                       ? rkAktifCardBackColor
                       : rkPasifCardBackColor,
-                  simge: Icons.female,
-                  metin: "KADIN",
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: OrtakCard(
-              () {},
-              Colors.red,
-              Column(
-                children: [
-                  Text(
-                    "HEIGHT",
-                    style: tsActivCardColor,
-                  ),
-                  Row(
-                    textBaseline: TextBaseline.alphabetic,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        height.toString(),
-                        style: tsHeightStyle,
-                      ),
-                      Text(
-                        "cm",
-                        style: tsCmStyle,
-                      ),
-                    ],
-                  ),
-                  SliderTheme(
-                    data: stSliderTheme,
-                    child: Slider(
-                      value: height.toDouble(),
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                      },
-                      min: 120,
-                      max: 220,
+          OrtakCard(
+            fonksiyon: () {
+              print("alper");
+            },
+            cardColor: rkPasifCardBackColor,
+            child: Column(
+              children: [
+                Text(
+                  "HEIGHT",
+                  style: tsActivCardColor,
+                ),
+                Row(
+                  textBaseline: TextBaseline.alphabetic,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      height.toString(),
+                      style: tsHeightStyle,
                     ),
-                  )
-                ],
-              ),
+                    Text(
+                      "cm",
+                      style: tsCmStyle,
+                    ),
+                  ],
+                ),
+                SliderTheme(
+                  data: stSliderTheme,
+                  child: Slider(
+                    value: height.toDouble(),
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                    min: 120,
+                    max: 220,
+                  ),
+                )
+              ],
             ),
           ),
+          Row(
+            children: [
+              OrtakCard(
+                  cardColor: rkPasifCardBackColor,
+                  child: Column(
+                    children: [
+                      Text(
+                        "WEIGHT",
+                        style: tsActivCardColor,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: tsHeightStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
+                            child: Text(
+                              '+',
+                              style: tsElevatedButton,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shadowColor: Colors.yellow,
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(24),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
+                            child: Text(
+                              '-',
+                              style: tsElevatedButton,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(24),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+              OrtakCard(
+                  cardColor: rkPasifCardBackColor,
+                  child: Column(
+                    children: [
+                      Text(
+                        "AGE",
+                        style: tsActivCardColor,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: tsHeightStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                setState(() {
+                                  age++;
+                                });
+                              });
+                            },
+                            child: Text(
+                              '+',
+                              style: tsElevatedButton,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shadowColor: Colors.yellow,
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(24),
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                            child: Text(
+                              '-',
+                              style: tsElevatedButton,
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: CircleBorder(),
+                              padding: EdgeInsets.all(24),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  )),
+            ],
+          ),
+          Container(
+            width: double.infinity,
+            height: 50,
+            child: ElevatedButton(
+              style: ButtonStyle(),
+              onPressed: () {},
+              child: Text("Hesapla"),
+            ),
+          )
         ],
       ),
     );

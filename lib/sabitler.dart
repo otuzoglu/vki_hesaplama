@@ -17,6 +17,11 @@ TextStyle tsHeightStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+TextStyle tsElevatedButton = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
+
 TextStyle tsCmStyle = TextStyle(
   color: rkCardForeColor,
 );
