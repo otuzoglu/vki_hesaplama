@@ -56,107 +56,101 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: OrtakCard(
-                    fonksiyon: () {
-                      setState(() {
-                        seciliCinsiyet = cinsiyet.male;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.male,
-                          size: 180,
+                OrtakCard(
+                  fonksiyon: () {
+                    setState(() {
+                      seciliCinsiyet = cinsiyet.male;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.male,
+                        size: 180,
+                        color: rkCardForeColor,
+                      ),
+                      Text(
+                        "ERKEK",
+                        style: TextStyle(
                           color: rkCardForeColor,
+                          fontSize: 24,
                         ),
-                        Text(
-                          "ERKEK",
-                          style: TextStyle(
-                            color: rkCardForeColor,
-                            fontSize: 24,
-                          ),
-                        )
-                      ],
-                    ),
-                    cardColor: seciliCinsiyet == cinsiyet.male
-                        ? rkAktifCardBackColor
-                        : rkPasifCardBackColor,
+                      )
+                    ],
                   ),
+                  cardColor: seciliCinsiyet == cinsiyet.male
+                      ? rkAktifCardBackColor
+                      : rkPasifCardBackColor,
                 ),
-                Expanded(
-                  child: OrtakCard(
-                    fonksiyon: () {
-                      setState(() {
-                        seciliCinsiyet = cinsiyet.female;
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.female,
-                          size: 180,
+                OrtakCard(
+                  fonksiyon: () {
+                    setState(() {
+                      seciliCinsiyet = cinsiyet.female;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.female,
+                        size: 180,
+                        color: rkCardForeColor,
+                      ),
+                      Text(
+                        "KADIN",
+                        style: TextStyle(
                           color: rkCardForeColor,
+                          fontSize: 24,
                         ),
-                        Text(
-                          "KADIN",
-                          style: TextStyle(
-                            color: rkCardForeColor,
-                            fontSize: 24,
-                          ),
-                        )
-                      ],
-                    ),
-                    cardColor: seciliCinsiyet == cinsiyet.female
-                        ? rkAktifCardBackColor
-                        : rkPasifCardBackColor,
+                      )
+                    ],
                   ),
+                  cardColor: seciliCinsiyet == cinsiyet.female
+                      ? rkAktifCardBackColor
+                      : rkPasifCardBackColor,
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: OrtakCard(
-              fonksiyon: () {
-                print("alper");
-              },
-              cardColor: rkPasifCardBackColor,
-              child: Column(
-                children: [
-                  Text(
-                    "HEIGHT",
-                    style: tsActivCardColor,
-                  ),
-                  Row(
-                    textBaseline: TextBaseline.alphabetic,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        height.toString(),
-                        style: tsHeightStyle,
-                      ),
-                      Text(
-                        "cm",
-                        style: tsCmStyle,
-                      ),
-                    ],
-                  ),
-                  SliderTheme(
-                    data: stSliderTheme,
-                    child: Slider(
-                      value: height.toDouble(),
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                        });
-                      },
-                      min: 120,
-                      max: 220,
+          OrtakCard(
+            fonksiyon: () {
+              print("alper");
+            },
+            cardColor: rkPasifCardBackColor,
+            child: Column(
+              children: [
+                Text(
+                  "HEIGHT",
+                  style: tsActivCardColor,
+                ),
+                Row(
+                  textBaseline: TextBaseline.alphabetic,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      height.toString(),
+                      style: tsHeightStyle,
                     ),
-                  )
-                ],
-              ),
+                    Text(
+                      "cm",
+                      style: tsCmStyle,
+                    ),
+                  ],
+                ),
+                SliderTheme(
+                  data: stSliderTheme,
+                  child: Slider(
+                    value: height.toDouble(),
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                    min: 120,
+                    max: 220,
+                  ),
+                )
+              ],
             ),
           ),
         ],

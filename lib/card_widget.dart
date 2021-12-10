@@ -10,17 +10,19 @@ class OrtakCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        margin: EdgeInsets.all(5),
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: cardColor,
+    return Expanded(
+      child: GestureDetector(
+        child: Container(
+          margin: EdgeInsets.all(5),
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: cardColor,
+          ),
+          child: child,
         ),
-        child: child,
+        onTap: fonksiyon,
       ),
-      onTap: fonksiyon,
     );
   }
 }
