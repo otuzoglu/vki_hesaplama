@@ -38,7 +38,7 @@ class GuzelCard extends StatelessWidget {
 }
 
 class OrtakCard extends StatelessWidget {
-  OrtakCard(this.fonksiyon, this.cardColor, this.cardChild);
+  OrtakCard({this.fonksiyon, this.cardColor, this.cardChild});
 
   final cardColor;
   final Widget cardChild;

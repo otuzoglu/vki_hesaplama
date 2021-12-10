@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       seciliCinsiyet = cinsiyet.male;
                     });
                   },
-                  child: Column(
+                  cardChild: Column(
                     children: [
                       Icon(
                         Icons.male,
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       seciliCinsiyet = cinsiyet.female;
                     });
                   },
-                  child: Column(
+                  cardChild: Column(
                     children: [
                       Icon(
                         Icons.female,
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
               print("alper");
             },
             cardColor: rkPasifCardBackColor,
-            child: Column(
+            cardChild: Column(
               children: [
                 Text(
                   "HEIGHT",
@@ -161,7 +161,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               OrtakCard(
                   cardColor: rkPasifCardBackColor,
-                  child: Column(
+                  cardChild: Column(
                     children: [
                       Text(
                         "WEIGHT",
@@ -212,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
               OrtakCard(
                   cardColor: rkPasifCardBackColor,
-                  child: Column(
+                  cardChild: Column(
                     children: [
                       Text(
                         "AGE",
